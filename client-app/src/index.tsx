@@ -1,14 +1,15 @@
-import ReactDOM from "react-dom";
-import "./app/layout/styles.css";
+import ReactDOM from 'react-dom';
+import './app/layout/styles.css';
 import 'react-calendar/dist/Calendar.css'
-import 'react-toastify/dist/ReactToastify.min.css'
-import App from "./app/layout/App";
-import "semantic-ui-css/semantic.min.css";
-import reportWebVitals from "./reportWebVitals";
-import { store, StoreContext } from "./app/stores/store";
+import 'react-toastify/dist/ReactToastify.min.css';
+import App from './app/layout/App';
+import 'semantic-ui-css/semantic.min.css';
+import 'react-datepicker/dist/react-datepicker.css'
+import reportWebVitals from './reportWebVitals';
+import { store, StoreContext } from './app/stores/store';
 import { createBrowserHistory } from 'history';
-import React from "react";
-import { Router } from "react-router-dom";
+import React from 'react';
+import { Router } from 'react-router-dom';
 
 export const history = createBrowserHistory();
 
