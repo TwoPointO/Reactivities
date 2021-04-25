@@ -12,7 +12,7 @@ namespace API.Controllers
 {
     [AllowAnonymous]
     [ApiController]
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
@@ -47,10 +47,12 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto) {
             if(await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email)) {
-                return BadRequest("Email taken");
+                ModelState.AddModelError("email", "Email is taken");
+                return ValidationProblem();
             }
             if(await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username)) {
-                return BadRequest("Username taken");
+                ModelState.AddModelError("username", "Username is taken");
+                return ValidationProblem();
             }
 
             var user = new AppUser {
